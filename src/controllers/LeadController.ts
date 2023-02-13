@@ -5,6 +5,26 @@ import { LeadDto } from './types'
 
 export default class LeadController  {
 
+    public async getAllClientLeads(req : Request , res: Response) : Promise<void> {
+      const {id} = req.headers
+      try {
+        const leads = await prisma.client.findUnique({
+          where : {
+            id : `${id}`
+          }, 
+          include: {
+            leads : true
+          }
+        })
+        res.json(leads)
+      } catch (error) {
+        res.status(400).json(error)
+      } finally {
+        prisma.$disconnect()
+      }
+  
+    }
+
     public async getAllLeads(_req : Request, res : Response) : Promise<void> {
       try {
         const leads = await prisma.lead.findMany()
