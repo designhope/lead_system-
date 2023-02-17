@@ -12,19 +12,18 @@ const clientController = new ClientController()
 const loginController = new LoginController()
 
 
-
+//login
 route.post('/login', loginController.login)
 
-
-route.get('/client/leads', leadController.getAllClientLeads)
+//leads
 route.post('/lead/new', leadController.createLead)
 route.get('/leads', leadController.getAllLeads)
 route.put('/lead/:id', leadController.editLead)
 route.delete('/lead/:id', leadController.deleteLead)
 
-
+//client
+route.get('/client/leads', leadController.getAllClientLeads)
 route.post('/client/new', clientController.createClient)
-
 route.put('/client/forget', clientController.forgetPassword)
 
 
