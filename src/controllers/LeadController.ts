@@ -12,9 +12,9 @@ export default class LeadController  {
           where : {
             id : `${id}`
           }, 
-          include: {
-            leads : true
-          }
+          select: {
+            leads : true,
+          },
         })
         res.json(leads)
       } catch (error) {

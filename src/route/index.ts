@@ -2,7 +2,7 @@ import { Router } from "express";
 import ClientController from "../controllers/ClientController";
 
 import  LeadController from "../controllers/LeadController";
-import LoginController from "../controllers/LoginController";
+import LoginController from "../controllers/LoginController.1";
 
 const route = Router();
 
@@ -25,6 +25,7 @@ route.delete('/lead/:id', leadController.deleteLead)
 
 route.post('/client/new', clientController.createClient)
 
+route.put('/client/forget', clientController.forgetPassword)
 
 
 export default route
