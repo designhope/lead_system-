@@ -9,5 +9,6 @@ export interface LeadDto {
 
 export interface ClientDTO {
   email : string
-  password : string
+  password: string
+  codeForget?: string
 }
